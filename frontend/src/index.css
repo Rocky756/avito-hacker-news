@@ -1,13 +1,106 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} */
+.cont1 {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  text-align: left;
+  background-color: azure;
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
+}
+.cont {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  text-align: left;
+  background-color: azure;
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
+}
+.btnCont {
+  display: flex;
+  justify-content: center;
+}
+.cardCont {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+.cells {
+  border-left:solid 20px transparent;
+}
+.cardTitle {
+  font-family: Gotham, Helvetica Neue, Myriad, Akzidenz Grotesk;
+  font-weight: bolder;
+  font-size: 24px;
+}
+.cardText {
+  font-family: Gotham, Helvetica Neue, Myriad, Akzidenz Grotesk;
+  font-weight: normal;
+  font-size: 18px;
+  font-style: italic;
+}
+.cardBtn1 {
+  width: 120px;
+  height: 40px;
+  margin: 5px;
+}
+.cardBtn {
+  width: 120px;
+  height: 40px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+  .cells {
+    border-left:solid 10px transparent;
+  }
+  .cardBody {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+  }
+  .cardTitle {
+    font-size: 14px;
+  }
+  .cardText {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .cardBtn1 {
+    width: 75px;
+    height: 30px;
+  }
+  .cardBtn {
+    width: 75px;
+    height: 30px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+  .pBtn {
+    font-size: 12px;
+  }
 }
