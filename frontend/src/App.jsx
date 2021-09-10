@@ -5,10 +5,12 @@ import { downloadAllPostsAC } from './redux/actionCreators/downloadAllPostsAC';
 import { ListGroup, Card, Button } from 'react-bootstrap';
 import { PostPage } from './components/PostPage';
 import { Home } from './components/Home';
+import { SWITCH_ON_HOME } from './redux/types'
+import { getCommentsAC } from './redux/actionCreators/getCommentsAC';
 
 const App = () => {
   const dispatch = useDispatch();
-  const [onHome, setOnHome] = useState(true);
+  const onHome = useSelector((state) => state.onHome);
   useEffect(() => {
     const action = downloadAllPostsAC();
     dispatch(action);
@@ -27,22 +29,35 @@ const App = () => {
     const action = downloadAllPostsAC();
     dispatch(action);
   }
+  const renewCommentsHandler = async() => { 
+    const action = getCommentsAC();
+    dispatch(getCommentsAC);
+  }
+
 
   return (
     <div className='cont1'>
       {onHome ? 
       <div className='btnCont'>
-        <Link to="/"><Button className='cardBtn1' variant="light"><p className='pBtn'>Главная</p></Button></Link>
-        <Button className='cardBtn1' variant="light"><p className='pBtn' onClick={renewHandler}>Обновить</p></Button>
+        <Link to="/"><Button className='cardBtn1' variant="dark"><p className='pBtn'>Главная</p></Button></Link>
+        <Button className='cardBtn1' variant="dark"><p className='pBtn' onClick={renewHandler}>Обновить</p></Button>
       </div>
-      : null
+      : 
+      <div className='btnCont'>
+        <Link to="/">
+          <Button className='cardBtn1' variant="dark" onClick={(pre) => dispatch({type: SWITCH_ON_HOME, payload: true})}>
+            <p className='pBtn'>Назад</p>
+          </Button>
+        </Link>
+        <Button className='cardBtn1' variant="dark"><p className='pBtn' onClick={renewCommentsHandler}>Обновить</p></Button>
+      </div>
       }
       <Switch>
         <Route exact path="/">
           <Home />
         </Route>
         <Route path={'/posts/page/:postID'}>
-          <PostPage setOnHome={setOnHome} />
+          <PostPage />
         </Route>
       </Switch>
     </div>

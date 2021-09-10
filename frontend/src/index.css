@@ -38,9 +38,11 @@ code {
 .btnCont {
   display: flex;
   justify-content: center;
+  background-color: #C7C7C1;
 }
 .cardCont {
   margin-top: 20px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   align-self: center;
